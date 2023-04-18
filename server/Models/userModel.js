@@ -26,6 +26,26 @@ const userSchema = new mongoose.Schema({
 }, {
     timestamps: true
 })
+// Linking user with note-----------------
+userSchema.virtual("notes", {
+    ref: "Note",
+    localField: "_id",
+    foreignField: "owner",
+});
+
+
+// SO that password and token is not sent with user object----------
+
+userSchema.methods.toJSON = function () {
+    const user = this;
+    const userObject = user.toObject();
+
+    delete userObject.password;
+    delete userObject.tokens;
+
+    return userObject;
+};
+// Generating auth token --------------------------------
 userSchema.methods.generateAuthToken = async function () {
     const user = this;
     const token = sign(
@@ -38,6 +58,8 @@ userSchema.methods.generateAuthToken = async function () {
 
     return token;
 };
+
+// Encrypting password with bcrypt module ------------------
 userSchema.pre('save', async function (next) {
     if (!this.isModified('password')) return next();
 
@@ -46,12 +68,15 @@ userSchema.pre('save', async function (next) {
     next();
 });
 
+ // Checking if password is correct or not --------------------
 userSchema.methods.correctPassword = async function (
     candidatePassword,
     userPassword
 ) {
     return await bcrypt.compare(candidatePassword, userPassword);
 };
+
+
 const User = mongoose.model("User" , userSchema);
 
 export default User

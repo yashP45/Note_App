@@ -1,6 +1,6 @@
 import User from "../Models/userModel.js";
 
-
+// -------------Creating new user
 export const signUp = async (req , res  , next) => {
     try {
         const newUser = await User.create({
@@ -29,6 +29,7 @@ export const signUp = async (req , res  , next) => {
     
     }
 }
+ // ----------------Logining in user------------
 export const login = async (req, res, next) => {
     try{
         const { username, password } = req.body
@@ -53,7 +54,7 @@ export const login = async (req, res, next) => {
         res.status(500).send({ message: "Unable to login" });
     }
 }
-
+// ------------Logging out user------------------
 export const logout = async (req, res , next) => {
     try {
         req.user.tokens = req.user.tokens.filter((token) => {
@@ -67,6 +68,20 @@ export const logout = async (req, res , next) => {
     }
 }
 
+export const getUser = async (req , res , next) => {
+    res.send(req.user)
+}
 
+// ---- delete user info ------------------
+export const deleteUser = async ( req , res , next) => {
+    try {
+        await req.user.remove();
+        res.send({
+            message: "Your account was deleted along with all your data",
+        });
+    } catch (e) {
+        res.status(500).send();
+    }
+}
   
 

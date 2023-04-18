@@ -1,5 +1,6 @@
 import  express  from "express";
 import router from "./routes/authRoutes.js";
+import Noterouter from "./routes/noteRoutes.js";
 const app = express()
 
 
@@ -9,10 +10,11 @@ app.use((req , res , next) => {
     res.set("Access-Control-Allow-Methods" , "*");
     if(res.method =="OPTIONS"){
         res.status(200).end();
-        return
+        return;
     }
     next();
 })
 app.use(express.json());
 app.use("/api/v1/auth" , router)
+app.use("/api/v1/note" , Noterouter)
 export default app
