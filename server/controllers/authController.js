@@ -2,11 +2,11 @@ import User from "../Models/userModel.js";
 
 // -------------Creating new user
 export const signUp = async (req , res  , next) => {
+    const newUser = await User.create({
+        username: req.body.username,
+        password: req.body.password,
+    })
     try {
-        const newUser = await User.create({
-            username: req.body.username,
-            password: req.body.password,
-        })
         const token = await newUser.generateAuthToken();
         res.status(200).json({
             status: 'success',

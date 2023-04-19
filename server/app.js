@@ -1,9 +1,10 @@
 import  express  from "express";
 import router from "./routes/authRoutes.js";
 import Noterouter from "./routes/noteRoutes.js";
+import cors from "cors"
 const app = express()
 
-
+app.use(cors())
 app.use((req , res , next) => {
     res.set("Access-Control-Allow-Origin" , "*");
     res.set("Access-Control-Allow-Headers" , "*");
