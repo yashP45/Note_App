@@ -80,7 +80,7 @@ export const deleteUser = async ( req , res , next) => {
             message: "Your account was deleted along with all your data",
         });
     } catch (e) {
-        res.status(500).send();
+        res.status(500).send(e);
     }
 }
   

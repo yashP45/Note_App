@@ -79,3 +79,55 @@ a:hover {
    
    
 }
+.NoteContainer {
+
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   
+}
+.containerrow {
+    display: flex;
+    width: 80%;
+   padding: 20px;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #f4f4f4;
+}
+.pagination {
+    margin-left: 900px;
+    padding: 10px;
+}
+.pagination-item {
+    margin-right: 0.5rem;
+    border: none;
+    background-color: transparent;
+     border-radius: 10px
+   
+  }
+  .active {
+    background-color: #0093e9;
+    color: #fff;
+  }
+  .item {
+   background-color: #0093e9;
+    height: 40px;
+    width: 250px;
+  }
+  .createForm {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+   
+    justify-content: center;
+  }
+
+  .yash {
+    background-color: #0093e9;
+    margin: 10px;
+  }
+
+ .deleteBtn {
+    background-color: #b40000;
+ }

@@ -7,6 +7,6 @@ router.post("/signUp" , signUp)
 router.post("/login",  login)
 router.post("/logout" , auth, logout)
 router.get("/getUser" , auth, getUser)
-router.delete("/getDelete" , auth, deleteUser)
+router.delete("/deleteMe" , auth, deleteUser)
 
 export default router

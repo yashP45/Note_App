@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import jwt from 'jsonwebtoken';
+import Note from "./noteModel.js";
 import bcrypt from 'bcryptjs';
 const { sign, verify } = jwt;
 
@@ -75,6 +76,12 @@ userSchema.methods.correctPassword = async function (
 ) {
     return await bcrypt.compare(candidatePassword, userPassword);
 };
+
+userSchema.pre("remove", async function (next) {
+    const user = this;
+    await Note.deleteMany({ owner: user._id });
+    next();
+});
 
 
 const User = mongoose.model("User" , userSchema);
