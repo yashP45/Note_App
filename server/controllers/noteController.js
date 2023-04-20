@@ -28,17 +28,7 @@ export const getNote = async ( req , res , next ) => {
     }
 }
 
-export const getSingleNote = async (req , res , next) => {
-    try {
-        const note = await Note.findById({ _id: req.params.id });
-        if (!note) {
-            return res.status(404).send();
-        }
-        res.send(note);
-    } catch (error) {
-        res.status(500).send();
-    }
-}
+
 
 export const deleteNote = async (req , res , next) => {
     try {

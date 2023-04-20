@@ -17,7 +17,7 @@ const SigninPage = () => {
         console.log(formData)
         axios({
             method: "POST",
-            url: `http://127.0.0.1:9000/api/v1/auth/signUp`,
+            url: `http://127.0.0.1:3000/api/v1/auth/signUp`,
             headers: {
                 "Content-Type": "application/json",
             },
