@@ -21,8 +21,6 @@ export const getNote = async ( req , res , next ) => {
     try {
         await req.user.populate("notes");
 
-        console.log(req.user.notes);
-
         res.send(req.user.notes);
     } catch (error) {
         console.log(e);

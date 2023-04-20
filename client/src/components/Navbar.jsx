@@ -30,22 +30,7 @@ const Navbarr = () => {
         alert(err);
     });
     }
-    const handleDeleteAccount = () => {
-        const token = localStorage.getItem("token");
-        axios({
-            url: "http://127.0.0.1:9000/api/v1/auth/deleteMe",
-            method: "DELETE",
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        }).then(() => {
-            console.log("User Account deleted");
-            localStorage.removeItem("token");
-            navigate("/");
-        }).catch((err) => {
-            alert(err);
-        });
-    };
+  
     return (
         <Navbar bg="light" expand="lg">
             <Container>
@@ -60,13 +45,7 @@ const Navbarr = () => {
                         >
                             Logout
                         </Button>
-                        <Button
-                            style={{ backgroundColor: "red", border: "none" ,  margin: 10 }}
-                            variant="primary"
-                            onClick={handleDeleteAccount}
-                        >
-                            Delete Account
-                        </Button>
+                        
                     </Nav>
                 </Navbar.Collapse>
             </Container>

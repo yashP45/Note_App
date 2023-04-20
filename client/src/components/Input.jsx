@@ -1,10 +1,12 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import React ,{useEffect, useState} from 'react'
+import React ,{Component, useEffect, useState} from 'react'
 import axios from 'axios';
+import Dashboard from '../pages/Dashboard';
+
 const CreateNote =() =>  {
   const [content, setContent] = useState("");
-
+  const [status , setStatus] = useState(false)
   const token = localStorage.getItem("token");
   const handleNoteCreate = (e) => {
     e.preventDefault();
@@ -20,7 +22,9 @@ const CreateNote =() =>  {
       data: note,
   }).then(() => {
       console.log("New Note Added");
+      window.location.reload(true)
   });
+  
  }
 
   return (
