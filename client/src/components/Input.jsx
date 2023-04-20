@@ -2,19 +2,19 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import React ,{Component, useEffect, useState} from 'react'
 import axios from 'axios';
-import Dashboard from '../pages/Dashboard';
 
 const CreateNote =() =>  {
   const [content, setContent] = useState("");
-  const [status , setStatus] = useState(false)
   const token = localStorage.getItem("token");
+ 
+  
   const handleNoteCreate = (e) => {
     e.preventDefault();
   const note = { content };
 
   axios({
       method: "POST",
-      url: `http://127.0.0.1:9000/api/v1/note/create`,
+      url: `${import.meta.env.VITE_REACT_APP_BACKEND}/api/v1/note/create`,
       headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,

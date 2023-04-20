@@ -13,7 +13,7 @@ const Navbarr = () => {
         const token = localStorage.getItem("token")
           console.log(token)
        axios({
-        url: "http://127.0.0.1:9000/api/v1/auth/logout",
+        url: `${import.meta.env.VITE_REACT_APP_BACKEND}/api/v1/auth/logout`,
         method: "POST",
         headers: {
             Authorization: `Bearer ${token}`,

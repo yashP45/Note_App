@@ -38,7 +38,7 @@ const Container = ({ itemsPerPage }) => {
   const getNotes = () => {
     const token = localStorage.getItem("token");
     axios
-      .get(`http://127.0.0.1:9000/api/v1/note/getNotes`, {
+      .get(`${import.meta.env.VITE_REACT_APP_BACKEND}/api/v1/note/getNotes`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -58,7 +58,7 @@ const Container = ({ itemsPerPage }) => {
   const handleDelete = (_id) => {
     const token = localStorage.getItem("token");
     axios({
-      url: `http://127.0.0.1:9000/api/v1/note/delete/${_id}`,
+      url: `${import.meta.env.VITE_REACT_APP_BACKEND}/api/v1/note/delete/${_id}`,
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
