@@ -44,7 +44,7 @@ const SigninPage = () => {
                     <input type="password" id="field9" placeholder='Password' {...register('password')} required />
 
                     <button className='btnup' type="submit">Sign up</button>
-                    <p>Already Have an account? <a href="/login">Login</a></p>
+                    <p>Already Have an account? <a href="https://note-fylr88c89-yashp45.vercel.app/login">Login</a></p>
                 </form>
 
 

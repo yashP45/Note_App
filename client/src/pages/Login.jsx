@@ -44,7 +44,7 @@ axios({
          <input type="text" id="field2" placeholder='Enter username'  {...register('username')} required/>
          <input type="password" id="field3" placeholder='Password' {...register('password')} required/>
          <button className='btnup' type="submit">Login </button>
-         <p>New here? Create a new account <a href="/">Signup</a></p>     
+         <p>New here? Create a new account <a href="https://note-fylr88c89-yashp45.vercel.app/">Signup</a></p>     
       
     </form>
 
