@@ -9,27 +9,17 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "/app.js"
+            "dest": "/app.js",
+            "methods": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "OPTIONS",
+                "DELETE"
+              ]
         }
-    ],
-    "headers": [
-        {
-          "source": "/(.*)",
-          "headers": [
-           
-            { "key": "Access-Control-Allow-Origin", "value": "*" }
-           
-          ]
-        },
-        {
-            "source": "/note-app-three-rho.vercel.app/(.*)",
-            "headers": [
-             
-              { "key": "Access-Control-Allow-Origin", "value": "*" }
-             
-            ]
-          }
-      ]
+    ]
     
 
     
